@@ -1,101 +1,44 @@
-# 🛠️ Phase 1: Basic Prototype Setup (1-2 हफ्ते)
+# 🛠️ Phase 1: Basic Prototype Setup (1-2 Weeks)
 
-## 1. Azure Account Setup (क्लाउड की दुकान खोलो)
-**करना क्या है:** [portal.azure.com](https://portal.azure.com) पर जाकर Free Account बनाओ।  
-**क्यों:** हमें VMs, Network, और दूसरे resources चाहिए।
+## 1. Azure Account Setup
+- Create a free account at [portal.azure.com](https://portal.azure.com).
+- Required for deploying virtual machines and networking resources.
 
-## 2. Basic Web Portal (दिखने वाला हिस्सा)
-**टेक्नोलॉजी:** HTML, CSS, JavaScript (React.js अगर आसान लगे)
+## 2. Basic Web Portal
+- Technologies: HTML, CSS, JavaScript (React.js recommended).
+- Build a simple web page with:
+  - Login button (using Azure AD).
+  - "Launch Ransomware Scenario" button.
 
-**करना क्या है:** एक simple page बनाओ जहाँ:
-- Login Button हो (Azure AD के साथ)
-- "Launch Ransomware Scenario" नाम का एक बटन हो
-
-## 3. Backend API (दिमाग वाला हिस्सा)
-**टेक्नोलॉजी:** Node.js + Express
-
-**करना क्या है:** एक API बनाओ जो ARM Template deploy करे।
-
-```javascript
-// server.js
-const express = require('express');
-const app = express();
-
-app.post('/launch-scenario', (req, res) => {
-  // Azure ARM Template deploy करने का code
-  res.json({ message: 'Scenario launched!' });
-});
-
-app.listen(3000, () => console.log('Server running on port 3000'));
-```
+## 3. Backend API
+- Technology: Node.js + Express.
+- Create an API to trigger Azure deployments using ARM templates.
 
 ---
 
 # 🚀 Phase 2: Core Cyber Range Logic
 
-## 4. ARM Template (Azure में lab बनाने का नक्शा)
-**करना क्या है:** एक JSON file बनाओ जो Azure को बताएगी कि 3 VMs कैसे बनानी हैं।
+## 4. ARM Template
+- Create a JSON template to automatically deploy 3 virtual machines and networking in Azure.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2020-11-01",
-      "name": "cyber-range-vnet",
-      "location": "centralindia",
-      "properties": { "addressSpace": { "addressPrefixes": ["10.0.0.0/16"] } }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2021-03-01",
-      "name": "red-team-vm",
-      "location": "centralindia",
-      "properties": {
-        "hardwareProfile": { "vmSize": "Standard_B2s" },
-        "storageProfile": { /* OS Disk Details */ },
-        "networkProfile": { /* Network Interface */ }
-      }
-    }
-  ]
-}
-```
-
-## 5. Simple Scoring Engine (नंबर देने वाला)
-**करना क्या है:** एक function लिखो जो Blue Team के actions को track करे।
-
-```javascript
-let blueTeamScore = 0;
-
-function detectAttack() {
-  blueTeamScore += 10;
-  console.log("Good job! Score: " + blueTeamScore);
-}
-```
+## 5. Simple Scoring Engine
+- Implement a function to track and display Blue Team actions and scores.
 
 ---
 
 # 🧪 Phase 3: Testing & Demo
 
 ## 6. Test Scenario: Ransomware Attack
-
-**Red Team (Attack)**
-- Red VM से एक phishing email भेजो।
-- एक fake ransomware script चलाओ। (`echo "Files Encrypted!"`)
-
-**Blue Team (Defend)**
-- Blue VM पर Azure Sentinel Install करो।
-- Alert आने पर score बढ़ाओ।
+- Red Team: Simulate a phishing email and a fake ransomware script.
+- Blue Team: Install Azure Sentinel, detect the attack, and increase the score.
 
 ## 7. Demo Preparation
-एक video बनाओ जो दिखाए:
-- Login करना
-- Scenario launch करना
-- Red Team attack करना
-- Blue Team defend करना
-- Score show होना
+- Prepare a video showing:
+  - Login
+  - Scenario launch
+  - Red Team attack
+  - Blue Team defense
+  - Score display
 
 ---
 
@@ -112,9 +55,10 @@ function detectAttack() {
 
 # ✅ Final Output - Prototype Demo
 
-एक working prototype जहाँ:
-- User login करेगा
-- एक button click करेगा
-- Azure में 3 VMs automatically बन जाएंगी
-- Red Team attack simulate करेगी
-- Blue Team
+A working prototype where:
+- User logs in
+- Clicks a button
+- 3 VMs are automatically created in Azure
+- Red Team simulates an attack
+- Blue Team defends
+- Score is displayed
