@@ -30,4 +30,18 @@ flowchart TD
 
     subgraph C [Phase 3: Real-Time Monitoring & Analysis]
         direction LR
-        B2 -- 
+        B2 -- Streams Logs --> C1[Azure Monitor<br>Collects Telemetry]
+        B3 -- Streams Logs --> C1
+        C1 -- Feeds Data --> C2[Azure Sentinel<br>SIEM & AI Analysis]
+        C2 -- Generates Alerts --> D
+    end
+
+    subgraph D [Phase 4: Scoring & Feedback]
+        direction LR
+        C2 -- Triggers --> D1[Scoring Engine<br>Rules-Based Evaluation]
+        D1 -- Updates --> D2[Live Dashboard<br>Leaderboards & Alerts]
+        D2 -- Provides --> D3[After-Action Reports<br>PDF Certificates]
+    end
+
+    B -- Monitored by --> C
+    C -- Analyzed by --> D
