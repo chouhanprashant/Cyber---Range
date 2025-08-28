@@ -1,0 +1,43 @@
+flowchart TD
+    A[Indian Organization<br>Needs Cyber Training] --> B{Choose Solution?}
+    
+    B --> C[Traditional On-Premise Lab]
+    B --> D[Generic Cloud Solution]
+    B --> E[Project Prakhar]
+
+    subgraph C_Disadvantages [ ]
+        C1[High Upfront Cost<br>₹50Lakh+]
+        C2[Long Setup Time<br>Weeks/Months]
+        C3[Not Scalable]
+        C4[Geographically Limited]
+    end
+    
+    C --> C_Disadvantages
+
+    subgraph D_Disadvantages [ ]
+        D1[Not India-Specific]
+        D2[Complex to Manage]
+        D3[No Ready-to-Use Indian Scenarios]
+        D4[Costly Without Optimization]
+    end
+    
+    D --> D_Disadvantages
+
+    subgraph E_Advantages [USP: Built for Bharat]
+        E1[Pay-As--You-Go Cloud<br>No Upfront Cost]
+        E2[Deploys in 15 Minutes<br>Fastest Setup]
+        E3[Massively Scalable<br>10 to 1000+ Users]
+        E4[Accessible from Anywhere<br>Internet Only]
+        E5[Pre-Built Indian Scenarios<br>UPI, Elections, Infrastructure]
+        E6[Automated Scoring & Feedback<br>Saves Instructor Time]
+    end
+
+    E --> E_Advantages
+
+    C_Disadvantages --> F[High Cost, Low Flexibility]
+    D_Disadvantages --> F
+    
+    E_Advantages --> G[Low Cost, High Agility<br>Wins the Contract]
+
+    F --> H[Dissatisfied Customer]
+    G --> I[Happy, Prepared Customer]
