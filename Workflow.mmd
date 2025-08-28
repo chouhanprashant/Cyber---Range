@@ -1,0 +1,14 @@
+flowchart TD
+    A[Users] --> B[Web Portal + Azure AD Authentication]
+    B --> C[Scenario Launcher (React + Node.js)]
+    C --> D[Azure Resource Manager (ARM) Templates]
+    D --> E[Isolated Virtual Network]
+
+    E --> F1[Red Team VMs: Attack Simulation]
+    E --> F2[Blue Team VMs: SOC Tools + SIEM (Azure Sentinel)]
+
+    F1 --> G[Monitoring & Log Analytics]
+    F2 --> G[Monitoring & Log Analytics]
+
+    G --> H[Scoring Engine]
+    H --> I[Performance Dashboard & Feedback]
